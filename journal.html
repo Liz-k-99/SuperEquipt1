@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ol>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="activities.html">Activities</a></li>
-                <li><a href="journal.html">Journal</a></li>
-            </ol>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="activities.html">Activities</a>
+        <a href="journal.html">Journal</a>
+    </nav>
+</header>
+<main>
+    <form id="dataForm">
+        <label for="countries">Countries: </label>
+        <input type="text" id="countries" name="countries" placeholder="Enter countries">
+
+        <label for="cities">Cities: </label>
+        <input type="text" id="cities" name="cities" placeholder="Enter cities">
+
+        <label for="towns">Towns: </label>
+        <input type="text" id="towns" name="towns" placeholder="Enter towns">
+
+        <input type="submit" value="Update Data">
+    </form>
+
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+</main>
+
 </body>
+
 </html>
