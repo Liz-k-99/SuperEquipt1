@@ -1,30 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" async></script>
     <title>Super Equipt</title>
 </head>
+
 <body>
     <header>
-        <nav>
+        <div class="title">
+            <div class="logo">
+                <img src="pics/SuperEqupitLogo.png" alt="logo">
+            </div>
+            <h1>Super Equipt</h1>
+        </div>
+        <!-- <nav>
             <ol>  
                 <li><a href="index.html">Home</a></li>
                 <li><a href="activities.html">Activities</a></li>
                 <li><a href="journal.html">Journal</a></li>
             </ol>
-        </nav>
+        </nav> -->
     </header>
 
     <main>
-        <h1>Super Equipt</h1>
+
         <h2>Get Equipt-Stay Courageous</h2>
-        <p>Super Equipt has you sorted, whether you're going on a short and sweet adventure or your next epic adventure. Whatever the adventure might be, Super Equipt will keep your adventures organised and stress free</p>
+        <p>Super Equipt has you sorted, whether you're going on a short and sweet adventure or your next epic adventure.
+            Whatever the adventure might be, Super Equipt will keep your adventures organised and stress free</p>
+        <div id="table">
+            <table>
+                <tr>
+                    <th>Activities</th>
+                    <th>Equipment</th>
+
+                </tr>
+                <tr>
+                    <td><img id="activities" src="pics/running.jpg" alt="person running"></td>
+                    <td><img id="equipment" src="pics/bike.jpg" alt="bike in sunset"></td>
+                </tr>
+                <tr>
+                    <th>Accommodation</th>
+                    <th>Food</th>
+                    
+                </tr>
+                <tr>
+                    <td><img id="accommodatin" src="pics/accommodation.jpg" alt="cave with moon in view"></td>
+                    <td><img id="food" src="pics/food.jpg" alt="plater of food"></td>
+                    
+                </tr>
+            </table>
+        </div>
+        <button type="button">add</button>
     </main>
     <footer>
 
     </footer>
-    <script src="script.js"></script>
+
 </body>
+
 </html>
