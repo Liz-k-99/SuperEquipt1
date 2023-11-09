@@ -9,7 +9,7 @@ const form1 = document.querySelector('#activityForm')
 const logActivity = (activity) => {
     let li = document.createElement('li')
     li.textContent = activity
-    document.querySelector('ul').appendChild(li)
+    document.querySelector('#activitySubmit').appendChild(li)
 }
 
 //adds users equipment 
@@ -23,5 +23,5 @@ form2.addEventListener('submit', (event) => {
 const logEquipment = (equipment) => {
     let li = document.createElement('li')
     li.textContent = equipment
-    document.querySelector('ul').appendChild(li)
+    document.querySelector('#equipmentSubmit').appendChild(li)
 }
