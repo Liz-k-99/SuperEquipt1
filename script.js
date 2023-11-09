@@ -1,17 +1,27 @@
-// const tableRow = (text) => {
-//     let tableRows = document.createElement('td')
-//     let tr = document.querySelector('table').appendChild(tableRows)
-//     for(let i=0; i<=4;i++){
-//         return tableRows[i]
-//     }
-//     tr.innerHTML(text)
-// }
-// onclick = tableRow
+//adds users activities 
+const form1 = document.querySelector('#activityForm')
+    form1.addEventListener('submit', (event) => {
+    event.preventDefault()
+    logActivity(event.target.activities.value)
+    form1.reset()
+});
 
-const tableColumn = (text) => {
-    let tableColumns = document.createElement('tr');
-    let tc = document.querySelector('table').appendChild(tableColumns)
-    tc.innerHTML(text)
+const logActivity = (activity) => {
+    let li = document.createElement('li')
+    li.textContent = activity
+    document.querySelector('ul').appendChild(li)
 }
 
-//onclick = tableColumn
+//adds users equipment 
+const form2 = document.querySelector('#equipmentForm')
+form2.addEventListener('submit', (event) => {
+    event.preventDefault()
+    logEquipment(event.target.equipment.value)
+    form2.reset()
+});
+
+const logEquipment = (equipment) => {
+    let li = document.createElement('li')
+    li.textContent = equipment
+    document.querySelector('ul').appendChild(li)
+}

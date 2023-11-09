@@ -54,13 +54,24 @@
                 </tr>
             </table>
         </div>
-        <form>
+        <form id="activityForm">
             <h1>Equipment and Activity log</h1>
-            <label for="activitiesLog">Please enter your activity</label>
-            <input id="activitiesLog" type="text" name="Activity" >
-            <label for="equipmentLog">What equipment will you need?</label>
-            <input id="equipmentLog" type="text" name="Equipment">
+            <label for="activites">Please enter your activity</label>
+            <input id="activities" type="text" name="Activity" >
+            <input id="btn" type="submit" value="Enter">
         </form>
+        <form id="equipmentForm">
+            <label for="equipment">What equipment will you need?</label>
+            <input id="equipment" type="text" name="Equipment">
+            <input id="btn" type="submit" value="Enter">
+        </form>
+        <div id="activityLog">
+            <ul> </ul>
+        </div>
+        <div id="equipmentLog">
+            <ul></ul>
+        </div>
+        
     </main>
     <footer>
 
