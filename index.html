@@ -11,19 +11,20 @@
 
 <body>
     <header>
+        <!-- <nav class="navbar">
+            <ul>
+                <li><a href="#">activites and equipment</a></li>
+                <li><a href="#">Food and accommodatin</a></li>
+                <li><a href="#">Adventure facts</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav> -->
         <div class="title">
             <div class="logo">
                 <img src="pics/SuperEqupitLogo.png" alt="logo">
             </div>
             <h1>Super Equipt</h1>
         </div>
-        <!-- <nav>
-            <ol>  
-                <li><a href="index.html">Home</a></li>
-                <li><a href="activities.html">Activities</a></li>
-                <li><a href="journal.html">Journal</a></li>
-            </ol>
-        </nav> -->
     </header>
 
     <main>
@@ -36,21 +37,19 @@
                 <tr>
                     <th>Activities</th>
                     <th>Equipment</th>
-
                 </tr>
                 <tr>
                     <td><img id="activities" src="pics/running.jpg" alt="person running">
                         <form id="activityForm">
-                            <!-- <h2>Equipment and Activity log</h2> -->
                             <label for="activites">Please enter your activity</label>
-                            <input id="activities" type="text" name="Activity">
+                            <input id="activities" type="text" name="Activity" required minlength="1">
                             <input id="btn" type="submit" value="Enter">
                         </form>
                     </td>
                     <td><img id="equipment" src="pics/bike.jpg" alt="bike in sunset">
                         <form id="equipmentForm">
                             <label for="equipment">What equipment will you need?</label>
-                            <input id="equipment" type="text" name="Equipment">
+                            <input id="equipment" type="text" name="Equipment" required minlength="1">
                             <input id="btn" type="submit" value="Enter">
                         </form>
                     </td>
@@ -74,20 +73,48 @@
                 <tr>
                     <th>Accommodation</th>
                     <th>Food</th>
-
                 </tr>
                 <tr>
                     <td><img id="accommodatin" src="pics/accommodation.jpg" alt="cave with moon in view"></td>
                     <td><img id="food" src="pics/food.jpg" alt="plater of food"></td>
-
                 </tr>
             </table>
         </div>
 
+        <ul id="foodList"></ul>
+        <!--loop through the api so user can input foods and then see what food contains-->
 
+        <!--have a section for user to access external sites that can help with travel-->
+        <h3>Where will your next adventure take place?</h3>
+        <p>To help you get ready for your next adventure check out these websites</p>
+        <div id="travelDestinations">
+            <a href="https://www.visittheusa.com.au/">
+                <img class="flag" src="pics/usaFlag.jpg" alt="USA flag">
+            </a>
+            <a href="https://www.australia.com/en">
+                <img class="flag" src="pics/ausFlag.jpg" alt="Australian Flag">
+            </a>
+            <a href="https://www.visitbritain.com/en/plan-your-trip/budgeting-tips">
+                <img class="flag" src="pics/ukFlag.jpg" alt="uk Flag">
+            </a>
+            <a href="https://www.eurail.com/en">
+                <img class="flag" src="pics/europeTrain.jpg" alt="Train">
+            </a>
+        </div>
 
-
-
+         <!--have a place that contains suggestions/facts when going on an adventure-->
+         <h3 class="facts">Adventure Facts</h3>
+         <div id="facts">
+         <ul>
+            <li>30 days is the approximate time one can live without food</li>
+            <li>Add 37 to the number of chirps a cricket makes in 15 seconds to determine the approximate temperature</li>
+            <li>Humans should have eight cups of water each day</li>
+            <li>The body loses heat twenty-five times faster in water than it does in air</li>
+            <li>Three is the universal signal number for distress.</li>
+            <li>At the moment you realize you are lost you should S.T.O.P. (Sit, Think, Observe, and Plan)</li>
+            <li>1 WHISTLE BLAST is International Whistle Code for “Where are you?</li>
+         </ul>
+         </div>
     </main>
     <footer>
 
