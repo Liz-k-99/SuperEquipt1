@@ -1,0 +1,28 @@
+{
+  "activities": [
+    {
+      "id": 1,
+      "name": "Cycling",
+      "equipment": [
+        "Waterproof jacket",
+        "bike"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Football",
+      "equipment": [
+        "football",
+        "Shoes"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Bouldering",
+      "equipment": [
+        "Chalk",
+        "Climbing Shoes"
+      ]
+    }
+  ]
+}
