@@ -66,6 +66,11 @@ function dropdownBar() {
 // fetchPokemon()
 
 document.addEventListener('DOMContentLoaded', () => {
+    const foodList = document.getElementById('foodList');
+    const foodSearchBtn = document.querySelector('#findFood')
+    foodSearchBtn.addEventListener('click', (event) => {
+        searchFood()
+    })
 async function getFood() {
     try {
         const searchTerm = document.getElementById('searchInput').value;
@@ -78,21 +83,19 @@ async function getFood() {
     }
 }
 function searchFood() {
-    const foodList = document.getElementById('foodList');
-    const foodSearch = document.querySelector('findFood')
-    foodList.innerHTML = ''; // Clear previous search results
-    getFood();
+    foodList.textContent = ''
+        getFood();
+    
 }
 
 function displayFoodResults(result) {
     const foodList = document.getElementById('foodList');
-    foodList.innerHTML = ''; // Clear previous search results
 
     if (!result.products || result.products.length === 0) {
         const li = document.createElement('li');
         li.textContent = 'No results found';
         foodList.appendChild(li);
-        return; // Exit the function early if there are no products
+        return; 
     }
 
     result.products.slice(0, 3).forEach(product => {
