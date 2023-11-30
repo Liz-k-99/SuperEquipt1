@@ -3,7 +3,7 @@ const form1 = document.querySelector('#activityForm')
 form1.addEventListener('submit', (event) => {
     event.preventDefault()
     logActivity(event.target.activities.value)
-    
+
     form1.reset()
 });
 
@@ -29,95 +29,122 @@ const logEquipment = (equipment1) => {
     li.addEventListener('click', event => event.target.remove())
 }
 
+function dropdownBar() {
+    const dropdown = document.querySelector('#dropdownList').classList.toggle('show')
+    window.onclick = (event) => {
+        if (!event.target.matches('.dropdownBtn')) {
+            let dropdownMenue = dropdown
+            for (let i = 0; i < dropdown.length; i++) {
+                let openMenue = dropdownMenue[i]
+                if (openMenue.classList.contains('show')) {
+                    openMenue.classList.remove('show')
+                }
+            }
+        }
+    }
+}
+
+// https://pokeapi.co/api/v2/pokemon/
 
 
-
-//fetch food api data
-// const result = fetch('https://world.openfoodfacts.org/api/v0/product/737628064502.json')
-//https://pokeapi.co/api/v2/pokemon/
-
-// result
-//     .then(res => res.json())
-//     .then((data) => {
+//pokemon test api
+//     async function fetchPokemon() {
+//         const response = await fetch('https://pokeapi.co/api/v2/pokemon/')
+//         const data = await response.json()
 //         console.log(data)
-//         data.product.forEach(pokemon => {
-//             const ul = document.querySelector('#')
+//         renderPokemonData(data.results)
+//     }
+
+//     function renderPokemonData(pokemonList) {
+//         pokemonList.forEach(pokemon => {
+//             const ul = document.querySelector('#pleaseWork')
 //             const li = document.createElement('li')
-//             li.innerHTML= pokemon.food_type.join(', ')
-//             ul.appendChild(li)
+//             li.innerHTML= pokemon.name
+//             ul.append(li)
 //         })
+//     }
+// fetchPokemon()
 
-//     })
-    async function fetchFood() {
-        console.log('fetchfood')
-        const response = await fetch('https://world.openfoodfacts.org/api/v0/product/737628064502.json')
-        const data = await response.json()
-        console.log(data)
-        renderFood(data.product)
+document.addEventListener('DOMContentLoaded', () => {
+async function getFood() {
+    try {
+        const searchTerm = document.getElementById('searchInput').value;
+        const url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchTerm}&page_size=10&json=true`;
+        const response = await fetch(url);
+        const result = await response.json();
+        displayFoodResults(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+function searchFood() {
+    const foodList = document.getElementById('foodList');
+    const foodSearch = document.querySelector('findFood')
+    foodList.innerHTML = ''; // Clear previous search results
+    getFood();
+}
+
+function displayFoodResults(result) {
+    const foodList = document.getElementById('foodList');
+    foodList.innerHTML = ''; // Clear previous search results
+
+    if (!result.products || result.products.length === 0) {
+        const li = document.createElement('li');
+        li.textContent = 'No results found';
+        foodList.appendChild(li);
+        return; // Exit the function early if there are no products
     }
 
-    function renderFood(foodList) {
-        foodList.forEach(pokemon => {
-            const ul = document.querySelector('#food')
-            const li = document.createElement('li')
-            li.innerHTML= pokemon.food_type
-            ul.appendChild(li)
-        })
-    }
-fetchFood()
-    
+    result.products.slice(0, 3).forEach(product => {
+        const li = document.createElement('li');
+        const foodLabel = document.createElement('span');
+        const foodImage = document.createElement('img');
+        const nutrients = document.createElement('p');
+        foodLabel.textContent = product.product_name;
+        foodImage.src = product.image_url;
+
+        // Extract nutrient information and format it
+        const nutrientInfo = product.nutriments;
+        const formattedNutrients = Object.entries(nutrientInfo)
+            .map(([key, value]) => `${key}: ${value}`)
+            .join(`\n`);
+        nutrients.textContent = formattedNutrients;
+
+        li.appendChild(foodImage);
+        li.appendChild(foodLabel);
+        li.appendChild(nutrients);
+        foodList.appendChild(li);
 
 
-//html post set up
-document.querySelector('#searchForm').addEventListener('submit',
-handleSubmit)
+    })
+}
+})
 
-function handleSubmit (event) {
+const form3 = document.querySelector('#searchForm')
+form3.addEventListener('submit', (event) => {
     event.preventDefault()
-    let activityObj = {
-        activity:event.target.activity.value,
-        equipment:event.target.equipment.value
-    }
-    renderActivity(activityObj)
-    addActivities(activityObj)
-}
-
-//access html
-const renderActivity = (activitydemo) => {
-    //build activity 
-    let card = document.createElement('div')
-    card.innerHTML = `
-    <h3>${activitydemo.name}</h3>
-    <ul>
-    <li>${activitydemo.equipment}</li>
-    </ul>`
-
-    document.querySelector('#searchForm').appendChild(card)
-}
-
-//fetch db json data 
-function getActivities() {
-    fetch('http://localhost:3000/activities')
-    .then(response => response.json())
-    .then(activityData => activityData.forEach(activitydemo => renderActivity(activitydemo)))
-
-}
+    const activity5 = demo1.value
+    const equipment7 = demo2.value
+    postNewAdventure(activity5, equipment7)
+    form3.reset()
+    // console.log(activity5, equipment7)
+})
 
 
-//post data
-function addActivities (activityObj) {
-    fetch('http://localhost:3000/activities',{
+async function postNewAdventure(activity5, equipment7) {
+    const options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body:JSON.stringify(activityObj)
-    })
-    .then(response => response.json())
-    .then(activitydemo => console.log(activitydemo))
+        body: JSON.stringify({
+            acti: activity5,
+            equip: equipment7
+        })
+    }
 
+    const response = await fetch('http://localhost:3000', options)
+    const data = await response.json()
+    console.log(data)
 }
 
-getActivities()
-//addActivities()
-//drop down menue for facts list

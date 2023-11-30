@@ -11,14 +11,19 @@
 
 <body>
     <header>
-        <!-- <nav class="navbar">
-            <ul>
-                <li><a href="#">activites and equipment</a></li>
-                <li><a href="#">Food and accommodatin</a></li>
-                <li><a href="#">Adventure facts</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav> -->
+        <nav>
+            <div class="dropdown">
+                <button onclick="dropdownBar()" class="dropdownBtn">select</button>
+                <div class="dropdownList">
+                    <ul class="dropdownList">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div class="title">
             <div class="logo">
                 <img src="pics/SuperEqupitLogo.png" alt="logo">
@@ -61,7 +66,7 @@
                 <tr>
                     <td>
                         <div id="activityLog">
-                            <ul id="activitySubmit"> 
+                            <ul id="activitySubmit">
                             </ul>
                         </div>
                     </td>
@@ -85,56 +90,59 @@
 
         <!-- <ul id="foodList"></ul> -->
         <!-- HTML form for user input -->
-<form id="searchForm">
-    <label for="demo">activity</label>
-    <input type="text">
-    <button type="submit">enter</button>
-    <label for="demo">equipment</label>
-    <input type="text" id="demo" placeholder="Enter ingredient">
-    <button type="submit">Search</button>
-  </form>
-  
-  <!-- Display search results -->
-  <ul id="ingredientList"></ul>
-  
+        <form id="searchForm">
+            <label for="demo">activity</label>
+            <input type="text" id="demo1" name="demo1">
+            <label for="demo">equipment</label>
+            <input type="text" id="demo2" name="demo2">
+            <input type="submit" value="submit">
+        </form>
+
+        <!-- Display search results -->
+        <!-- <ul id="foodList"></ul> -->
+
         <!--loop through the api so user can input foods and then see what food contains-->
 
         <!--have a section for user to access external sites that can help with travel-->
         <h3>Where will your next adventure take place?</h3>
         <p>To help you get prepared check out the links below</p>
         <div id="travelDestinations">
-            <a href="https://www.visittheusa.com.au/">
+            <a href="https://www.visittheusa.com.au/" target="_blank">
                 <img class="flag" src="pics/usaFlag.jpg" alt="USA flag">
             </a>
-            <a href="https://www.australia.com/en">
+            <a href="https://www.australia.com/en" target="_blank">
                 <img class="flag" src="pics/ausFlag.jpg" alt="Australian Flag">
             </a>
-            <a href="https://www.visitbritain.com/en/plan-your-trip/budgeting-tips">
+            <a href="https://www.visitbritain.com/en/plan-your-trip/budgeting-tips" target="_blank">
                 <img class="flag" src="pics/ukFlag.jpg" alt="uk Flag">
             </a>
-            <a href="https://www.eurail.com/en">
+            <a href="https://www.eurail.com/en" target="_blank">
                 <img class="flag" src="pics/europeTrain.jpg" alt="Train">
             </a>
         </div>
 
-         <!--have a place that contains suggestions/facts when going on an adventure-->
-         <h3 class="facts">Adventure Facts</h3>
-         <div id="facts">
-         <ul>
-            <li>30 days is the approximate time one can live without food</li>
-            <li>Add 37 to the number of chirps a cricket makes in 15 seconds to determine the approximate temperature</li>
-            <li>Humans should have eight cups of water each day</li>
-            <li>The body loses heat twenty-five times faster in water than it does in air</li>
-            <li>Three is the universal signal number for distress.</li>
-            <li>At the moment you realize you are lost you should S.T.O.P. (Sit, Think, Observe, and Plan)</li>
-            <li>1 WHISTLE BLAST is International Whistle Code for “Where are you?</li>
-         </ul>
-         </div>
+        <!--have a place that contains suggestions/facts when going on an adventure-->
+        <h3 class="facts">Adventure Facts</h3>
+        <div id="facts">
+            <ul>
+                <li>30 days is the approximate time one can live without food</li>
+                <li>Add 37 to the number of chirps a cricket makes in 15 seconds to determine the approximate
+                    temperature</li>
+                <li>Humans should have eight cups of water each day</li>
+                <li>The body loses heat twenty-five times faster in water than it does in air</li>
+                <li>Three is the universal signal number for distress.</li>
+                <li>At the moment you realize you are lost you should S.T.O.P. (Sit, Think, Observe, and Plan)</li>
+                <li>1 WHISTLE BLAST is International Whistle Code for “Where are you?</li>
+            </ul>
+        </div>
     </main>
     <footer>
-        <ul id="food"></ul>
+        <ul id="pleaseWork"></ul>
     </footer>
-
+    <input type="text" id="searchInput" placeholder="Search for a food">
+    <button id="findFood" onclick="searchFood()">Search</button>
+    
+    <ul id="foodList"></ul>
 </body>
 
 </html>

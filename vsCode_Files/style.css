@@ -3,6 +3,15 @@ body{
     text-align: center;
     color: snow;
 }
+.dropdown{
+  position: relative;
+
+}
+.dropdownList{
+  display:none;
+  position: absolute;
+  
+}
 .title{
   display: flex;
   flex-wrap: wrap;
