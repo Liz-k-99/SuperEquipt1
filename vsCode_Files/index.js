@@ -28,7 +28,7 @@ const logEquipment = (equipment1) => {
     document.querySelector('#equipmentSubmit').appendChild(li)
     li.addEventListener('click', event => event.target.remove())
 }
-
+//look at getting this to work 
 function dropdownBar() {
     const dropdown = document.querySelector('#dropdownList').classList.toggle('show')
     window.onclick = (event) => {
@@ -133,7 +133,7 @@ form3.addEventListener('submit', (event) => {
     // console.log(activity5, equipment7)
 })
 
-
+//look at creating a key/value for this (allow user to add to the value)
 async function postNewAdventure(activity5, equipment7) {
     const options = {
         method: 'POST',
